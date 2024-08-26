@@ -49,6 +49,8 @@ export const loader = async ({
    context: { user, payload },
    request,
 }: LoaderFunctionArgs) => {
+   const url = request.url;
+   console.log(url);
    const { siteSlug } = await getSiteSlug(request, payload, user);
 
    const locale = await i18nextServer.getLocale(request);
@@ -90,6 +92,7 @@ export const loader = async ({
          user,
          siteSlug,
          following,
+         url,
       },
       { headers },
    );
