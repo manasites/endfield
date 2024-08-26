@@ -30,6 +30,8 @@ export async function loader({
 
    const { origin } = new URL(request.url);
 
+   console.log({ url: request.url, origin });
+
    const site = await fetchSite({ siteSlug, request, payload });
 
    // console.log("site: ", site);
