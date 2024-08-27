@@ -90,7 +90,6 @@ export const loader = async ({
          user,
          siteSlug,
          following,
-         url: request.url,
       },
       { headers },
    );
