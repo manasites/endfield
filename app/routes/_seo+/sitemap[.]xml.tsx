@@ -28,9 +28,7 @@ export async function loader({
 }: LoaderFunctionArgs) {
    const { siteSlug } = await getSiteSlug(request, payload, user);
 
-   const { origin } = new URL(request.url);
-
-   console.log({ url: request.url, origin });
+   const { origin } = new URL(request.url, "https://");
 
    const site = await fetchSite({ siteSlug, request, payload });
 
