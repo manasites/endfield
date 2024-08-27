@@ -87,14 +87,14 @@ async function startCore() {
 
    app.use((req, res, next) => {
       //enforce https connection to make sure the site uses http2 protocol
-      const proto = req.get("X-Forwarded-Proto");
-      const host = getHost(req);
-      // console.log("proto", proto, "host", host);
-      if (proto === "http") {
-         res.set("X-Forwarded-Proto", "https");
-         res.redirect(`https://${host}${req.originalUrl}`);
-         return;
-      }
+      // const proto = req.get("X-Forwarded-Proto");
+      // const host = getHost(req);
+      // // console.log("proto", proto, "host", host);
+      // if (proto === "http") {
+      //    res.set("X-Forwarded-Proto", "https");
+      //    res.redirect(`https://${host}${req.originalUrl}`);
+      //    return;
+      // }
 
       // if they connect once with HTTPS, then they'll connect with HTTPS for the next hundred years
       res.set(
