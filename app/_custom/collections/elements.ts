@@ -2,26 +2,21 @@ import type { CollectionConfig } from "payload/types";
 
 import { isStaff } from "../../db/collections/users/users.access";
 
-export const _ItemTypes: CollectionConfig = {
-   slug: "_item-types",
-   labels: { singular: "_item-type", plural: "_item-types" },
-   admin: {
-      group: "Custom",
-      useAsTitle: "name",
+export const Elements: CollectionConfig = {
+   slug: "elements",
+   labels: {
+      singular: "Element",
+      plural: "Elements",
    },
    access: {
-      create: isStaff, //udpate in future to allow site admins as well
+      create: isStaff,
       read: () => true,
-      update: isStaff, //udpate in future to allow site admins as well
-      delete: isStaff, //udpate in future to allow site admins as well
+      update: isStaff,
+      delete: isStaff,
    },
    fields: [
       {
          name: "id",
-         type: "text",
-      },
-      {
-         name: "data_key",
          type: "text",
       },
       {
@@ -38,4 +33,4 @@ export const _ItemTypes: CollectionConfig = {
          type: "text",
       },
    ],
-};
+}

@@ -2,18 +2,17 @@ import type { CollectionConfig } from "payload/types";
 
 import { isStaff } from "../../db/collections/users/users.access";
 
-export const _Stats: CollectionConfig = {
-   slug: "_stats",
-   labels: { singular: "_stat", plural: "_stats" },
-   admin: {
-      group: "Custom",
-      useAsTitle: "name",
+export const Items: CollectionConfig = {
+   slug: "items",
+   labels: {
+      singular: "Item",
+      plural: "Items",
    },
    access: {
-      create: isStaff, //udpate in future to allow site admins as well
+      create: isStaff,
       read: () => true,
-      update: isStaff, //udpate in future to allow site admins as well
-      delete: isStaff, //udpate in future to allow site admins as well
+      update: isStaff,
+      delete: isStaff,
    },
    fields: [
       {
@@ -21,7 +20,7 @@ export const _Stats: CollectionConfig = {
          type: "text",
       },
       {
-         name: "data_key",
+         name: "slug",
          type: "text",
       },
       {
@@ -29,8 +28,8 @@ export const _Stats: CollectionConfig = {
          type: "text",
       },
       {
-         name: "icon_id",
-         type: "text",
+         name: "description",
+         type: "textarea",
       },
       {
          name: "icon",
@@ -38,8 +37,17 @@ export const _Stats: CollectionConfig = {
          relationTo: "images",
       },
       {
+         name: "rarity",
+         type: "relationship",
+         relationTo: "rarities",
+      },
+      {
+         name: "flavorText",
+         type: "textarea",
+      },
+      {
          name: "checksum",
          type: "text",
       },
    ],
-};
+}
